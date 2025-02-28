@@ -9,18 +9,19 @@ public class DiceGame {
 
     private List<Die> dice;
 
-    private int numDice;
+    int numDice;
 
     public DiceGame() {
         this.numDice = 5;
+        initDice();
     }
 
     public DiceGame(int numDice) {
         this.numDice = numDice;
+        initDice();
     }
 
     public int play() {
-        initDice();
         int rollSum = 0;
         while(!dice.isEmpty()) {
             rollDice();
@@ -31,13 +32,13 @@ public class DiceGame {
         return rollSum;
     }
 
-    private void rollDice() {
+    void rollDice() {
         for (Die die : dice) {
             die.doRoll();
         }
     }
 
-    private int scoreRolls() {
+    int scoreRolls() {
         int score = 0;
         boolean hasThrees = checkForThrees();
         if(hasThrees) {
@@ -49,7 +50,7 @@ public class DiceGame {
         return score;
     }
 
-    private int findAndRemoveMinDie() {
+    int findAndRemoveMinDie() {
         Die minDie = Collections.min(dice);;
         int minRoll = minDie.getCurrentRoll();
 
@@ -65,7 +66,7 @@ public class DiceGame {
 
     }
 
-    private boolean checkForThrees() {
+    boolean checkForThrees() {
         boolean hasThrees = false;
         for (Iterator<Die> iter = dice.iterator(); iter.hasNext() ;) {
             Die die = iter.next();
@@ -78,10 +79,14 @@ public class DiceGame {
     }
 
 
-    private void initDice() {
+    void initDice() {
         dice = new ArrayList<>();
         for (int i = 0; i < numDice; i++) {
             dice.add(new Die());
         }
+    }
+
+    List<Die> getDice() {
+        return dice;
     }
 }

@@ -13,6 +13,12 @@ public class Die implements Comparable<Die> {
         return currentRoll;
     }
 
+    public Die() { }
+
+    public Die(int setRoll) {
+        currentRoll = setRoll;
+    }
+
     public int getCurrentRoll() {
         return currentRoll;
     }
