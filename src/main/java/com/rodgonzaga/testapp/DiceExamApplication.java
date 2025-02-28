@@ -29,7 +29,8 @@ public class DiceExamApplication implements CommandLineRunner {
 	}
 
 	public void runGameSimulation(int numDice, int numGames) {
-		System.out.println("Running " + numGames + " games...");
+		System.out.println();
+		LOG.info("Running " + numGames + " games...");
 		Map<Integer, Integer> scoreCounter = new HashMap<>();
 		for(int i = 0; i < numGames; i++) {
 			int score = new DiceGame(numDice).play();
