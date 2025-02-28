@@ -1,2 +1,6 @@
 # fcc-test
-Dice test for FCC
+
+## Author: Rod Gonzaga (rod.gonzaga@3pillarglobal.com)
+Dice test for FCC.
+
+
